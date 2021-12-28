@@ -1,9 +1,14 @@
 import graphene
 import json
 
+class User(graphene.ObjectType):
+    id = graphene.ID()
+    username = graphene.String()
+
 class Query(graphene.ObjectType):
     hello = graphene.String()
     is_admin = graphene.Boolean()
+    created_at = graphene.DateTime()
 
     def resolve_hello(self, info):
         return "world"
